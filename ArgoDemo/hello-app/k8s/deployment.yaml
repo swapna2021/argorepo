@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-react
+  labels:
+    app: hello-react
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: hello-react
+  template:
+    metadata:
+      labels:
+        app: hello-react
+    spec:
+      containers:
+      - name: hello-react
+        image: swapnamotupally/argohello:v12
+        ports:
+        - containerPort: 80
